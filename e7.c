@@ -28,7 +28,7 @@ int main(){
   int vetor[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
   int* novo_vetor;
   int qtd;
-  int min, max, aux=0, flag=0;
+  int min, max;
 
   printf("Vetor = {");
   for(int i=0;i<15;i++){
@@ -40,11 +40,15 @@ int main(){
   printf("Digite o valor max: ");
   scanf("%d", &max);
   novo_vetor = valores_entre(vetor,15,min,max,&qtd);
+  if(qtd == 0){
+    printf("\nNenhum valor nesse intervalo!\n");
+  }else{
   printf("Valores entre %d e %d: {", min, max);
-  for(int i=0; i<qtd; i++){
-    printf("%d, ", novo_vetor[i]);
+    for(int i=0; i<qtd; i++){
+      printf("%d, ", novo_vetor[i]);
+    }
+    printf("\b\b}\n");
   }
-  printf("\b\b}\n");
-
+  free(novo_vetor);
   return 0;
 }
