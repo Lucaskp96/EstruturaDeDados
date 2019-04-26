@@ -19,7 +19,7 @@ int main()
 
     //bubbleSort(vetor, &n);
     //selectionSort(vetor, &n);
-    insertionSort(vetor, n);
+    insertionSort(vetor, &n);
 
     printf("vetor[%d]: {", n);
     for(int i = 0; i < n; i++){

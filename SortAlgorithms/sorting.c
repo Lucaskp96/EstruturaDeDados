@@ -5,7 +5,7 @@
 
 // Algoritmo de ordenação BubbleSort utilizando ponteiros e alocação dinâmica.
 // ****************************************************************************
-void bubbleSort(int *vetor, int* n){
+void bubbleSort(int* vetor, int* n){
     int *temp, *houveTroca, *i, *tam;
 
     temp = malloc(sizeof(int));
@@ -35,7 +35,7 @@ void bubbleSort(int *vetor, int* n){
 
 // Algoritmo de ordenação SelectionSort utilizando ponteiros e alocação dinâmica.
 // *******************************************************************************
-void selectionSort(int *vetor, int* n){
+void selectionSort(int* vetor, int* n){
     int* i, *j, *menor, *temp;
 
     i = malloc(sizeof(int));
@@ -63,14 +63,22 @@ void selectionSort(int *vetor, int* n){
 
 // Algoritmo de ordenação InsertionSort utilizando ponteiros e alocação dinâmica.
 // *******************************************************************************
-void insertionSort(int *vetor, int n){
-    int i, j, temp;
-    for(i = 1; i < n; i++){
-        temp = vetor[i];
-        for(j = i; (j > 0) && (temp < vetor[j-1]); j--){
-            vetor[j] = vetor[j-1];
+void insertionSort(int* vetor, int* n){
+    int *i, *j, *temp;
+
+    i = malloc(sizeof(int));
+    j = malloc(sizeof(int));
+    temp = malloc(sizeof(int));
+
+    for(*i = 1; *i < *n; (*i)++){
+        *temp = vetor[*i];
+        for(*j = *i; (*j > 0) && (*temp < vetor[(*j)-1]); (*j)--){
+            vetor[*j] = vetor[(*j)-1];
         }
-        vetor[j] = temp;
+        vetor[*j] = *temp;
     }
+
+    free(i); free(j); free(temp);
+    i = NULL; j = NULL; temp = NULL;
 }
 
