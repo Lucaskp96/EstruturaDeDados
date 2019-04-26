@@ -18,7 +18,7 @@ int main()
     printf("\b\b}\n");
 
     //bubbleSort(vetor, &n);
-    //selectionSort(vetor, n);
+    selectionSort(vetor, &n);
 
     printf("vetor[%d]: {", n);
     for(int i = 0; i < n; i++){

@@ -29,24 +29,33 @@ void bubbleSort(int *vetor, int* n){
     }
 
     free(temp); free(houveTroca); free(tam);
+    temp = NULL; houveTroca = NULL; tam = NULL;
 }
 
 
 // Algoritmo de ordenação SelectionSort utilizando ponteiros e alocação dinâmica.
 // *******************************************************************************
-void selectionSort(int *vetor, int n){
-    int i, j, menor, temp;
-    for(i = 0; i < n-1; i++){
-        menor = i;
-        for(j = i + 1; j < n; j++){
-            if(vetor[j] < vetor[menor]){
-                menor = j;
+void selectionSort(int *vetor, int* n){
+    int* i, *j, *menor, *temp;
+
+    i = malloc(sizeof(int));
+    j = malloc(sizeof(int));
+    menor = malloc(sizeof(int));
+    temp = malloc(sizeof(int));
+
+    for(*i = 0; *i < (*n)-1; (*i)++){
+        *menor = *i;
+        for(*j = *i + 1; *j < *n; (*j)++){
+            if(vetor[*j] < vetor[*menor]){
+                *menor = *j;
             }
         }
-        if(i != menor){
-            temp = vetor[i];
-            vetor[i] = vetor[menor];
-            vetor[menor] = temp;
+        if(*i != *menor){
+            *temp = vetor[*i];
+            vetor[*i] = vetor[*menor];
+            vetor[*menor] = *temp;
         }
     }
+    free(i); free(j); free(menor); free(temp);
+    i = NULL; j = NULL; menor = NULL; temp = NULL;
 }
