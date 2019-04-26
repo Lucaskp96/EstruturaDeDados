@@ -59,3 +59,18 @@ void selectionSort(int *vetor, int* n){
     free(i); free(j); free(menor); free(temp);
     i = NULL; j = NULL; menor = NULL; temp = NULL;
 }
+
+
+// Algoritmo de ordenação InsertionSort utilizando ponteiros e alocação dinâmica.
+// *******************************************************************************
+void insertionSort(int *vetor, int n){
+    int i, j, temp;
+    for(i = 1; i < n; i++){
+        temp = vetor[i];
+        for(j = i; (j > 0) && (temp < vetor[j-1]); j--){
+            vetor[j] = vetor[j-1];
+        }
+        vetor[j] = temp;
+    }
+}
+
