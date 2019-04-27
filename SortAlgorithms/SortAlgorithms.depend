@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1556292104 source:/home/lkuster/Documentos/repositorios_git/EstruturaDeDados/SortAlgorithms/main.c
+	<stdio.h>
+	<stdlib.h>
+	"sorting.c"
+
+1556291108 /home/lkuster/Documentos/repositorios_git/EstruturaDeDados/SortAlgorithms/sorting.h
+
+1556203248 /home/lkuster/Documentos/repositorios_git/EstruturaDeDados/SortAlgorithms/bubbleSort.c
+	<stdio.h>
+	<stdlib.h>
+	"sorting.h"
+
+1556292091 /home/lkuster/Documentos/repositorios_git/EstruturaDeDados/SortAlgorithms/sorting.c
+	<stdio.h>
+	<stdlib.h>
+	"sorting.h"
+
