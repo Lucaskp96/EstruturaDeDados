@@ -82,3 +82,44 @@ void insertionSort(int* vetor, int* n){
     i = NULL; j = NULL; temp = NULL;
 }
 
+// Algoritmo de ordenação QuickSort utilizando ponteiros e alocação dinâmica.
+// *******************************************************************************
+int particiona(int* vetor, int* inicio, int* fim){
+    int *esquerda, *direita, *pivo, *aux;
+    esquerda = malloc(sizeof(int));
+    direita = malloc(sizeof(int));
+    pivo = malloc(sizeof(int));
+    aux = malloc(sizeof(int));
+    *esquerda = *inicio;
+    *direita = *fim;
+    *pivo = vetor[*inicio];
+    while(*esquerda < *direita){
+        while(vetor[*esquerda] <= *pivo){
+            (*esquerda)++;
+        }
+        while(vetor[*direita] > *pivo){
+            (*direita)--;
+        }
+        if(*esquerda < *direita){
+            *aux = vetor[*esquerda];
+            vetor[*esquerda] = vetor[*direita];
+            vetor[*direita] = *aux;
+        }
+    }
+    vetor[*inicio] = vetor[*direita];
+    vetor[*direita] = *pivo;
+    free(esquerda); free(pivo); free(aux);
+    esquerda = NULL; pivo = NULL; aux = NULL;
+    return *direita;
+}
+void quickSort(int* vetor, int inicio, int fim){
+    int* pivo;
+    pivo = malloc(sizeof(int));
+    if(fim > inicio){
+        *pivo = particiona(vetor, &inicio, &fim);
+        quickSort(vetor, inicio, (*pivo)-1);
+        quickSort(vetor, (*pivo)+1, fim);
+    }
+    free(pivo);
+    pivo = NULL;
+}
