@@ -16,3 +16,15 @@
 	<stdlib.h>
 	"sorting.h"
 
+1556343245 source:/home/lucaskuster/Documents/SortAlgorithms/main.c
+	<stdio.h>
+	<stdlib.h>
+	"sorting.c"
+
+1556343607 /home/lucaskuster/Documents/SortAlgorithms/sorting.c
+	<stdio.h>
+	<stdlib.h>
+	"sorting.h"
+
+1556341974 /home/lucaskuster/Documents/SortAlgorithms/sorting.h
+

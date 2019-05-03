@@ -8,5 +8,5 @@
 void bubbleSort(int *vetor, int* n);
 void insertionSort(int *vetor, int* n);
 void selectionSort(int *vetor, int* n);
-void quickSort(int *vetor, int* n);
+//void quickSort(int *vetor, int* n);
 void mergeSort(int *vetor, int* n);
