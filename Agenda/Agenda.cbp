@@ -31,7 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../../../../Área de Trabalho/Untitled1.c">
+		<Unit filename="Agenda.h" />
+		<Unit filename="agenda.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="main.c">
