@@ -5,7 +5,7 @@ int* valores_entre(int* vetor, int n_elementos, int min, int max, int* qtd ){
   int* vetor_intervalo;                 // Vetor final com os valor do intervalo.
   int* vetor_auxiliar;                  // Utilizado para armazenar os valores do intervalo temporariamente.
   int* save;
-  int* i = malloc(sizeof(int));         // Contador de valores no intervalo.
+  int* i = (int*)malloc(sizeof(int));         // Contador de valores no intervalo.
   *i = 0;
 
   vetor_intervalo = (int*)malloc(sizeof(int));               // vetor_intervalo inicializado com 1 posição.

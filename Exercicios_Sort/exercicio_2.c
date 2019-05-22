@@ -6,9 +6,9 @@ int tam = 5;
 void ordena_decrescente(int* vetor, int* n){
     int *i, *j, *temp;
 
-    i = malloc(sizeof(int));
-    j = malloc(sizeof(int));
-    temp = malloc(sizeof(int));
+    i = (int*)malloc(sizeof(int));
+    j = (int*)malloc(sizeof(int));
+    temp = (int*)malloc(sizeof(int));
 
     for(*i = 1; *i < *n; (*i)++){
         *temp = vetor[*i];
@@ -23,7 +23,7 @@ void ordena_decrescente(int* vetor, int* n){
 }
 
 int main(){
-int *vetor = malloc(tam*sizeof(int));
+int *vetor = (int*)malloc(tam*sizeof(int));
     int *aux;
     aux = vetor;
 

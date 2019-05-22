@@ -6,11 +6,13 @@ int n = 10;
 
 // Função que verifica se o vetor está ordenado
 void Is_ordered(int* vetor){
+    int* leitor;
+    leitor = vetor;
     int flag = 0;
     // Verifica se o elemento atual é menor que todos os posteriores
     for(int i = 0; i < n; i++){
-        for(int j = i+1; j <= n; j++){
-            if(*(vetor+i) > *(vetor+j)){
+        for(int j = i+1; j < n; j++){
+            if(*(leitor+i) > *(leitor+j)){
                 flag = 1;
             }
         }
@@ -24,17 +26,19 @@ void Is_ordered(int* vetor){
 
 
 int main(){
-    int *vetor = malloc(n*sizeof(int));
-    int *aux;
-    aux = vetor;
+    int* vetor;
+    int* escritor;
+    vetor = (int*)malloc(n*sizeof(int));
+    escritor = vetor;
     printf("Digite os %d elementos do vetor: \n", n);
     for(int i = 0; i < n; i++){
-        scanf("%d", vetor);
-        vetor++;
+        scanf("%d", escritor);
+        escritor++;
     }
-    vetor = aux;
+ 
     Is_ordered(vetor);
 
     free(vetor);
+
     return 0;
 }
