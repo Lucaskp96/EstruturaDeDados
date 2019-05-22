@@ -1,0 +1,3 @@
+Diretorio Drmemory: /home/lkuster/DrMemory/bin/drmemory
+Compilar arquivo.c: g++ -m64 -g -fno-inline -fno-omit-frame-pointer "arquivo".c -o myapp
+Executar drmemory: ~/DrMemory/bin64/drmemory -- ./myapp
