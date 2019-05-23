@@ -13,10 +13,9 @@ int main(){
 
     printf("Digite o tamanho do vetor: ");
     scanf("%d", &tam);
+    vetor = (int*) calloc(tam,sizeof(int));
     printf("Digite o valor a ser inserido: ");
     scanf("%d", &numero);
-    vetor = (int*) calloc(tam,sizeof(int));
-
     printf("Digite um vetor ordenado de tamanho %d\n", tam);
     preenche(vetor,tam);
 
@@ -25,6 +24,7 @@ int main(){
     insere(vetor,tam,numero);
 
     imprime(vetor,tam+1);
+
     free(vetor);
     vetor = NULL;
 
@@ -32,7 +32,28 @@ int main(){
 }
 
 void insere(int* vetor, int tam, int num){
-    //
+    int i = 0;
+    vetor = (int*) realloc(vetor, (tam+1)*sizeof(int));
+    if(num > vetor[tam-1]){
+        vetor[tam] = num;
+    }else{
+        if(num <= vetor[0]){
+                for(int a = 0; a < tam; a++)
+                    vetor[tam-a] = vetor[tam-a-1];
+                vetor[0] = num;
+        }else{
+            while(i < tam){
+                if(num < vetor[i]){
+                    for(int a = 0; a <= i; a++){
+                        vetor[tam-a] = vetor[tam-a-1];
+                    }
+                    vetor[i] = num;
+                    break;
+                }
+                i++;
+            }
+        }
+    }
 }
 
 void imprime(int* vetor, int tam){
