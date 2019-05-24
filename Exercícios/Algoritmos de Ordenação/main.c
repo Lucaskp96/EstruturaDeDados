@@ -4,7 +4,7 @@
 
 int main()
 {
-    int n = 6;
+    int n = 12;
     int vetor[n];
 
     printf("Digite os %d elementos do vetor: \n", n);
@@ -20,7 +20,7 @@ int main()
     //bubbleSort(vetor, &n);
     //selectionSort(vetor, &n);
     //insertionSort(vetor, &n);
-    quickSort(vetor,0,5);
+    quickSort(vetor,0,n);
     printf("vetor[%d]: {", n);
     for(int i = 0; i < n; i++){
         printf("%d, ", vetor[i]);

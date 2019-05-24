@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+/*Implementar funções para criar um vetor, imprimi-lo e liberar a memória alocada*/
+
 int* cria_vetor(int N);
 void imprime_vetor(int* vetor, int tamanho);
 void libera_mem(int* vetor);

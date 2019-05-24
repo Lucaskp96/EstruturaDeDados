@@ -8,9 +8,9 @@
 void bubbleSort(int* vetor, int* n){
     int *temp, *houveTroca, *i, *tam;
 
-    temp = malloc(sizeof(int));
-    houveTroca = malloc(sizeof(int));
-    tam = malloc(sizeof(int));
+    temp = (int*) malloc(sizeof(int));
+    houveTroca = (int*) malloc(sizeof(int));
+    tam = (int*) malloc(sizeof(int));
 
     (*tam) = (*n);
     (*houveTroca) = 1;
@@ -38,10 +38,10 @@ void bubbleSort(int* vetor, int* n){
 void selectionSort(int* vetor, int* n){
     int* i, *j, *menor, *temp;
 
-    i = malloc(sizeof(int));
-    j = malloc(sizeof(int));
-    menor = malloc(sizeof(int));
-    temp = malloc(sizeof(int));
+    i = (int*) malloc(sizeof(int));
+    j = (int*) malloc(sizeof(int));
+    menor = (int*) malloc(sizeof(int));
+    temp = (int*) malloc(sizeof(int));
 
     for(*i = 0; *i < (*n)-1; (*i)++){
         *menor = *i;
@@ -66,9 +66,9 @@ void selectionSort(int* vetor, int* n){
 void insertionSort(int* vetor, int* n){
     int *i, *j, *temp;
 
-    i = malloc(sizeof(int));
-    j = malloc(sizeof(int));
-    temp = malloc(sizeof(int));
+    i = (int*) malloc(sizeof(int));
+    j = (int*) malloc(sizeof(int));
+    temp = (int*) malloc(sizeof(int));
 
     for(*i = 1; *i < *n; (*i)++){
         *temp = vetor[*i];
@@ -82,44 +82,37 @@ void insertionSort(int* vetor, int* n){
     i = NULL; j = NULL; temp = NULL;
 }
 
-// Algoritmo de ordenação QuickSort utilizando ponteiros e alocação dinâmica.
+// Algoritmo de ordenação QuickSort estático.
 // *******************************************************************************
-int particiona(int* vetor, int* inicio, int* fim){
-    int *esquerda, *direita, *pivo, *aux;
-    esquerda = malloc(sizeof(int));
-    direita = malloc(sizeof(int));
-    pivo = malloc(sizeof(int));
-    aux = malloc(sizeof(int));
-    *esquerda = *inicio;
-    *direita = *fim;
-    *pivo = vetor[*inicio];
-    while(*esquerda < *direita){
-        while(vetor[*esquerda] <= *pivo){
-            (*esquerda)++;
+int particiona(int* vetor, int inicio, int fim){
+    int esquerda, direita, pivo, aux;
+
+    esquerda = inicio;
+    direita = fim;
+    pivo = vetor[inicio];
+    while(esquerda < direita){
+        while(vetor[esquerda] <= pivo){
+            (esquerda)++;
         }
-        while(vetor[*direita] > *pivo){
-            (*direita)--;
+        while(vetor[direita] > pivo){
+            (direita)--;
         }
-        if(*esquerda < *direita){
-            *aux = vetor[*esquerda];
-            vetor[*esquerda] = vetor[*direita];
-            vetor[*direita] = *aux;
+        if(esquerda < direita){
+            aux = vetor[esquerda];
+            vetor[esquerda] = vetor[direita];
+            vetor[direita] = aux;
         }
     }
-    vetor[*inicio] = vetor[*direita];
-    vetor[*direita] = *pivo;
-    free(esquerda); free(pivo); free(aux);
-    esquerda = NULL; pivo = NULL; aux = NULL;
-    return *direita;
+    vetor[inicio] = vetor[direita];
+    vetor[direita] = pivo;
+
+    return direita;
 }
 void quickSort(int* vetor, int inicio, int fim){
-    int* pivo;
-    pivo = malloc(sizeof(int));
+    int pivo;
     if(fim > inicio){
-        *pivo = particiona(vetor, &inicio, &fim);
-        quickSort(vetor, inicio, (*pivo)-1);
-        quickSort(vetor, (*pivo)+1, fim);
+        pivo = particiona(vetor, inicio, fim);
+        quickSort(vetor, inicio, pivo-1);
+        quickSort(vetor, pivo+1, fim);
     }
-    free(pivo);
-    pivo = NULL;
 }

@@ -23,6 +23,7 @@ int main(){
   int** matriz;
 
   matriz = aloca_matriz(nL,nC);
+  printf("Digite os elementos para a matriz %dx%d:\n", nL, nC);
   for(int i=0; i < nC; i++){
     for(int a=0; a < nL; a++){
       scanf("%d", &matriz[a][i]);
@@ -37,6 +38,7 @@ int main(){
   }
   libera_mem(matriz);
   matriz=NULL;
+
   return 0;
 }
 

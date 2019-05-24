@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Criar uma função que preencha um vetor alocado dinamicamente. */
+
 void preencher_vetor(int* vetor, int x);
 
 int main(){
   int* tamanho_vetor;
   int* vetor;
-	int* auxiliar;
+  int* auxiliar;
 // alocação do vetor e da variável tamanho do vetor.
   tamanho_vetor = (int*)malloc(sizeof(int));
   printf("Digite o tamanho do vetor: ");
