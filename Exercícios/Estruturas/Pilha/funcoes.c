@@ -21,7 +21,7 @@ void LIST(Agenda* agenda){
     while(!EMPTY(agenda)){
         Pessoa pessoa;
         POP(agenda, &pessoa);
-        printf("\n%i\t%s\t%i anos\ttelefone: %i\n", pessoa->index,pessoa->nome,pessoa->idade,pessoa->telefone);
+        printf("\n%i\t%s\t%i anos\ttelefone: %i\n", pessoa.index,pessoa.nome,pessoa.idade,pessoa.telefone);
     }
 }
 
@@ -84,7 +84,7 @@ bool POP(Agenda* agenda, Pessoa* individuo){
     pessoas = (Pessoa*) malloc(size);
 
     if(!pessoas){
-        printf("Erro ao alocar memória\n", );
+        printf("Erro ao alocar memória\n");
         return FALSE;
     }
 
@@ -116,6 +116,6 @@ void CLEAR(Agenda* agenda){
 
 void StackCopy(Pessoa* newPessoas, int oldLimit, Pessoa* oldPessoas, int newLimit){
     for(int i = 0; i < newLimit; i++){
-        
+
     }
 }
