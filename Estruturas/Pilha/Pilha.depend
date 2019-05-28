@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1558995096 source:/home/lucaskuster/Documents/Github/EstruturaDeDados/Estruturas/Pilha/main.c
+	<stdio.h>
+	<stdlib.h>
+	"header.h"
+
+1558998024 /home/lucaskuster/Documents/Github/EstruturaDeDados/Estruturas/Pilha/header.h
+
