@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "pessoa.h"
+#include "Agenda.h"
 
 int main(){
-
+	showMenu();
 	return 0;
 }
