@@ -26,7 +26,7 @@ bool EMPTY(Pilha* pilha){
 }
 /*--Verifica se a pilha está cheia--*/
 bool FULL(Pilha* pilha){
-	return pilha->topo == pilha->limite;
+	return pilha->topo == pilha->limite-1;
 }
 /*--Realiza um PUSH na pilha(empilha)--*/
 bool PUSH(Pilha* pilha, Pessoa* pessoa){
@@ -45,29 +45,31 @@ void POP(Pilha* pilha, Pessoa* pessoa){
 		pilha->topo--;
 		*pessoa = pilha->pessoas[pilha->topo];
 	}else{
-		printf("Não é possível desempilhar. Pilha está vazia!\n");
+		printf(" Não é possível desempilhar. Pilha está vazia!\n");
 	}
 }
 /*--Limpa a pilha--*/
 void CLEAR(Pilha* pilha){
-	char op;
-	printf("\nTem certeza que deseja limpar a pilha(y/n)?\n");
-	scanf("%c", &op);
-	if(op == 'y'){
+	char c;
+	printf("\n Tem certeza que deseja limpar a pilha(y/n)?\n- ");
+	setbuf(stdin,NULL);
+	scanf("%c", &c);
+	getchar();
+	if(c == 'y'){
 		pilha->topo = pilha->base;
-		printf("Pilha limpa!\n");
+		printf(" Pilha limpa!\n");
 	}else{
-		printf("Nenhuma operação realizada!\n");
-	}	
+		printf(" Nenhuma operação realizada!\n");
+	}
 }
 /*--Imprime elementos da pilha--*/
 void PRINT(Pilha* pilha){
 	Pessoa* pessoa;
 	pessoa = (Pessoa*) malloc(sizeof(Pessoa));
-	printf("Listando...\n");
-	do{
+	printf(" Listando...\n");
+	while(!EMPTY(pilha)){
 		POP(pilha, pessoa);
-		printf("\t%s\b - %i\n", pessoa->name, pessoa->idade);
-	}while(!EMPTY(pilha));
+		printf("    %s - %i\n", pessoa->name, pessoa->idade);
+	}
 	free(pessoa);
 }
