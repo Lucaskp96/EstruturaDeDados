@@ -3,7 +3,7 @@
 #define bool int
 #define true 1
 #define false 0
-#define MAX 10
+#define MAX 3
 /*--Define a estrutura Pessoa--*/
 typedef struct pessoa{
 	char name[32];
