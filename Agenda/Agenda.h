@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #ifndef AGENDA_H_INCLUDED
 #define AGENDA_H_INCLUDED
 
