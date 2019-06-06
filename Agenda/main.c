@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Agenda.h"
+#include "agenda.h"
 
 int main(){
 	void* buffer;
@@ -11,7 +11,7 @@ int main(){
 	buffer = (void*) malloc(sizeof(void));
 	contato = (Contact*) malloc(sizeof(Contact));
 
-	
+
 
 	showMenu();
 	return 0;
