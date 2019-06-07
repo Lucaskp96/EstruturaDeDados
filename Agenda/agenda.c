@@ -3,17 +3,6 @@
 #include <string.h>
 #include "agenda.h"
 
-struct contato{
-    struct contato* next;
-    struct contato* previous;
-    char name[32];
-    int tel;
-};
-
-struct agenda{
-    Contact* first;
-    Contact* last;
-};
 
 /*--Inicializa uma agenda--*/
 void initAgenda(Header* header){
@@ -31,13 +20,13 @@ void initContact(Contact* contact){
 void insertContact(Header* agenda, Contact* newContact){
     if(agenda->first == NULL){ // Se a lista estiver vazia, adiciona no inicio da lista.
         newContact->previous = newContact;
-        newContact->next = NULL;
+        newContact->next = newContact + sizeof(Contact);
         agenda->first = newContact;
         agenda->last = newContact;
     }else{  // Se a lista NÃO estiver vazia, adiciona no fim da lista.
-        newContact->previous = agenda->last;
-        newContact->next = NULL;
         agenda->last = newContact;
+        newContact->previous = newContact - sizeof(Contact);
+        newContact->next = newContact + sizeof(Contact);
     }
 }
 /*--Imprime os contatos da agenda--*/
