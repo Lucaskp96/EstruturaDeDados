@@ -1,3 +1,4 @@
+/*-- LISTA SIMPLESMENTE ENCADEADA --*/
 #ifndef LISTA_INCLUDED
 #define LISTA_INCLUDED
 #define bool int
@@ -18,9 +19,16 @@ typedef struct header{
 //typedef struct header Header;
 //typedef struct node Node;
 
-void printList(Header* list);
-bool insertElement(Header* list, Node* newElement);
+void RESET(Header* list);
+bool EMPTY(Header* list);
+//bool FULL(Header* list); não faz sentido para essa estrutura.
+bool PUSH(Header* list, Node* newElement);
+void POP(Header* list, Node* element);
+bool CLEAR(Header* list);
+void PRINT(Header* list);
+bool FIND(Header* list, int num);
+void showMenu(void);
 Node* readElement();
-void resetList(Header* head);
 
-#endif // LISTA_INCLUDED
+
+#endif // LISTA_INCLUDlist
