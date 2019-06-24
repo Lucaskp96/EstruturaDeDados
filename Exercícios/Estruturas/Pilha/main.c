@@ -1,36 +1,69 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
+#include <stdio.h>
+#include <string.h>
+#include "pilha.h"
 
-int main()
-{
-    int* op = malloc(sizeof(int));
+void enterRemove(char* name);
 
-    printf("\t\t\tHello world!\n");
-    printf("This is my Agenda! Choose an option below:\n");
-    printf("\t0. Person insertion\n");
-    printf("\t1. Person delete from the top\n");
-    printf("\t2. Person delete by name\n");
-    printf("\t3. Clear Agenda\n");
-    printf("\t4. List Agenda\n");
-    printf("\t5. Quit\n: ");
+int main(){
+	Pilha* pilha;
+	char *op;
+	Pessoa* pessoa;
 
-    scanf("%d", op);
-    switch(*op){
-        case 0:
-                break;
-        case 1:
-                break;
-        case 2:
-                break;
-        case 3:
-                break;
-        case 4:
-                break;
-        case 5:
-                break;
-        default:    break;
-    }
+	op = (char*) malloc(sizeof(char));
+	pilha = (Pilha*) malloc(sizeof(Pilha));
+	pessoa = (Pessoa*) malloc(sizeof(Pessoa));
 
-    return 0;
+	showMenu();
+
+	do{
+		setbuf(stdin,NULL);
+		printf(": ");
+		scanf("%c", op);
+		getchar();
+		switch(*op){
+			case '1':
+					RESET(pilha);
+					if(EMPTY) printf(" Pilha iniciada!\n");
+				break;
+			case '2':
+					printf("Digite os dados do novo elemento\n");
+					printf(" Nome: ");
+					setbuf(stdin,NULL);
+					fgets(pessoa->name,32,stdin);
+					enterRemove(pessoa->name);
+					printf(" Idade: ");
+					scanf("%d", &pessoa->idade);
+					PUSH(pilha, pessoa);
+				break;
+			case '3':
+					POP(pilha, pessoa);
+				break;
+			case '4':
+					CLEAR(pilha);
+				break;
+			case '5':
+					PRINT(pilha);
+				break;
+			case '6':
+					printf(" Saindo...\n");
+				break;
+			default:
+					printf(" Opção inválida\n");
+		}
+	}while(*op != '6');
+
+	free(pilha);
+	return 0;
+}
+
+void enterRemove(char* name){
+		int i = 0;
+		do{
+			if(*name == '\n'){
+					*name = '\0';
+			}
+			name++;
+			i++;
+		}while(i < 32);
 }
