@@ -3,6 +3,7 @@
 #define bool int
 #define true 1
 #define false 0
+#include "itad.h"
 /*** Célula da lista ***/
 typedef struct no{
     struct no* previous;
@@ -15,12 +16,21 @@ typedef struct{
     Node* ends;
 }Header;
 
-
+/*** Inicializa a lista ***/
+Header* create_list();
+/*** Mostra o menu ***/
+void showMenu();
+/*** Retorna True se a lista estiver vazia ***/
 bool is_empty(Header* list);
-void insert_contact(Header* list, Person* newContact);
+/*** Insere um novo contato na lista ***/
+bool insert_contact(Header* list, Person* newContact);
+/*** Imprime os elementos da lista ***/
 void print_list(Header* list);
+/*** Remove um determinado contato da lista ***/
 bool remove_contact(Header* list, Person* contact);
-Person* find_by_name(Header* list, char* name);
-Person* find_by_age(Header* list, int age);
+/*** Busca elemento na lista pelo nome ***/
+Node* search_by_name(Header* list, char* name);
+/*** Busca elemento na lista pela idade ***/
+Node* search_by_age(Header* list, int age);
 
 #endif // IED_H_INCLUDED

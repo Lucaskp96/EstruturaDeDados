@@ -25,7 +25,9 @@ bool get_contact(Person* person){
 /*** Pega, do usuário, os dados do contato ***/
 bool set_contact(Person* person){
     if(person != NULL){
+        printf("Nome: ");
         scanf("%s", person->name);
+        printf("Idade: ");
         scanf("%d", &person->age);
         return true;
     }else{
